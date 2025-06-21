@@ -1,0 +1,17 @@
+debug/difficultywindow.o
+debug/gamewindow.o
+debug/historywindow.o
+debug/homewindow.o
+debug/main.o
+debug/mainwindow.o
+debug/playmodewindow.o
+debug/registerwindow.o
+debug/security.o
+debug/usermanager.o
+debug/moc_difficultywindow.o
+debug/moc_gamewindow.o
+debug/moc_historywindow.o
+debug/moc_homewindow.o
+debug/moc_mainwindow.o
+debug/moc_playmodewindow.o
+debug/moc_registerwindow.o

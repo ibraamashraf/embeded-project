@@ -1,0 +1,19 @@
+{
+    "users": [
+        {
+            "games": [
+                {
+                    "difficulty": 3,
+                    "mode": "PvAI",
+                    "result": "Draw",
+                    "timestamp": "2025-06-21T05:19:55"
+                }
+            ],
+            "history": [
+                "draw"
+            ],
+            "password": "b84c2500383b735bae5f3a90ab8b071bc7ab8cde34b21b3fe0d5f68049275a5c",
+            "username": "ahmed"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "users": [
+        {
+            "games": [
+            ],
+            "history": [
+                "win",
+                "loss",
+                "draw"
+            ],
+            "password": "af0426e71dd57c0fdf93f23f6f191a4aa0578ad7d71897e936746028b8ffd31d",
+            "username": "testUser"
+        },
+        {
+            "games": [
+            ],
+            "history": [
+            ],
+            "password": "d68543d861e04a9621a9b23e5367323751d67bb6045f2f1a925b5426392b7593",
+            "username": "emptyUser"
+        }
+    ]
+}
