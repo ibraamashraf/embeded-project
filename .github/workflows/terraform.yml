@@ -1,0 +1,54 @@
+name: 'Terraform'
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_wrapper: false
+
+    - name: Terraform Init
+      run: terraform init
+
+    - name: Terraform Format
+      run: terraform fmt -check
+
+    - name: Terraform Validate
+      run: terraform validate
+
+    - name: Terraform Plan
+      id: plan
+      run: |
+        set +e
+        terraform plan -detailed-exitcode -input=false -out=tfplan
+        PLAN_EXIT_CODE=$?
+        echo "exitcode=$PLAN_EXIT_CODE" >> $GITHUB_OUTPUT
+        echo "Plan exit code: $PLAN_EXIT_CODE"
+        
+        if [ $PLAN_EXIT_CODE -eq 1 ]; then
+          echo "Plan failed"
+          exit 1
+        fi
+
+    - name: Terraform Apply
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push' && steps.plan.outputs.exitcode == '2'
+      run: terraform apply -auto-approve tfplan
